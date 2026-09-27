@@ -1,0 +1,70 @@
+.contenedor {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.volver {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.detalleCard {
+  display: flex;
+  gap: 30px;
+  margin-top: 20px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.imagen {
+  width: 40%;
+  height: 300px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 60%;
+}
+
+.categoria {
+  text-transform: uppercase;
+  color: #888;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.descripcion {
+  color: #555;
+  margin: 15px 0;
+  line-height: 1.6;
+}
+
+.precio {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2e7d32;
+  margin-bottom: 20px;
+}
+
+.botonAgregar {
+  padding: 12px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.botonAgregar:hover {
+  background-color: #218838;
+}

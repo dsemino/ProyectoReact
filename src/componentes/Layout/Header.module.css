@@ -1,0 +1,38 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background-color: #1a1d20; /* Un gris oscuro más profundo y elegante */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Sombra suave inferior */
+  border-bottom: 2px solid #ffc107; /* Línea de acento amarilla/dorada de ferretería */
+}
+
+.logoContenedor {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.iconoLogo {
+  font-size: 28px;
+  background-color: #ffc107;
+  padding: 8px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(255, 193, 7, 0.3);
+}
+
+.marcaTexto {
+  font-size: 26px;
+  font-weight: 800; /* Texto bien robusto e industrial */
+  letter-spacing: -0.5px;
+  /* Efecto de degradado moderno en el texto */
+  background: linear-gradient(45deg, #ffffff 60%, #ffc107);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+}

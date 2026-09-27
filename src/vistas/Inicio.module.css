@@ -1,0 +1,56 @@
+.contenedor {
+  text-align: center;
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.titulo {
+  font-size: 32px;
+  margin-bottom: 10px;
+  color: #212529;
+}
+
+.bajada {
+  color: #666;
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+/* Enlace contenedor */
+.enlaceTarjeta {
+  display: inline-block; /* Permite que el enlace se achique al tamaño de la tarjeta */
+  text-decoration: none;
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+/* Tarjeta Única Centrada */
+.tarjetaCentro {
+  max-width: 500px; /* Ancho máximo cómodo para la tarjeta */
+  margin: 0 auto;   /* Centra la tarjeta horizontalmente */
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjetaCentro img {
+  width: 100%;
+  height: 300px;     /* Altura fija ideal para destacar la foto */
+  object-fit: cover; /* Ajusta la foto estéticamente */
+  display: block;
+}
+
+/* Efecto al pasar el mouse por encima de la tarjeta */
+.enlaceTarjeta:hover .tarjetaCentro {
+  transform: scale(1.03);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.textoAcceso {
+  margin-top: 20px;
+  font-weight: bold;
+  color: #007bff;
+  font-size: 16px;
+}

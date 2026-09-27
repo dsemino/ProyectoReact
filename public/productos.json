@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "nombre": "Taladro Percutor Inalámbrico 18V",
+    "categoria": "Herramientas Eléctricas",
+    "precio": 85000,
+    "descripcion": "Taladro percutor de alta potencia con 2 baterías de litio y maletín de transporte.",
+    "imagen": "/imagenes/taladro 18V.webp"
+  },
+  {
+    "id": 2,
+    "nombre": "Amoladora Angular 4.5 Pulgadas",
+    "categoria": "Herramientas Eléctricas",
+    "precio": 42000,
+    "descripcion": "Amoladora angular con motor de 850W, ideal para corte y desbaste de metales.",
+    "imagen": "/imagenes/amoladora angular.webp"
+  },
+  {
+    "id": 3,
+    "nombre": "Juego de Llaves Tubo de 41 piezas",
+    "categoria": "Herramientas Manuales",
+    "precio": 35000,
+    "descripcion": "Set de llaves crique y bocallaves de acero cromo vanadio de alta resistencia.",
+    "imagen": "/imagenes/Kit llaves tubo 41 piezas.webp"
+  },
+  {
+    "id": 4,
+    "nombre": "Sierra Circular Profesional 1400W",
+    "categoria": "Herramientas Eléctricas",
+    "precio": 78000,
+    "descripcion": "Sierra circular con guía láser y disco de 184mm para cortes precisos en madera.",
+    "imagen": "/imagenes/Sierra circular 1400.webp"
+  },
+  {
+    "id": 5,
+    "nombre": "Set de Destornilladores Magnéticos x6",
+    "categoria": "Herramientas Manuales",
+    "precio": 12000,
+    "descripcion": "Destornilladores aislados con punta imantada (3 Philips y 3 Planos).",
+    "imagen": "/imagenes/Destornilladores x6.webp"
+  },
+  {
+    "id": 6,
+    "nombre": "Caja de Herramientas Plástica 19\"",
+    "categoria": "Organizadores",
+    "precio": 15500,
+    "descripcion": "Caja organizadora reforzada con bandeja interna desmontable y cierres metálicos.",
+    "imagen": "/imagenes/Caja19.webp"
+  },
+  {
+    "id": 7,
+    "nombre": "Lijadora Orbital de Palma 200W",
+    "categoria": "Herramientas Eléctricas",
+    "precio": 29000,
+    "descripcion": "Lijadora compacta con sistema de recolección de polvo para acabados finos.",
+    "imagen": "/imagenes/lijadora palma.webp"
+  },
+  {
+    "id": 8,
+    "nombre": "Pinza Universal de Fuerza 8\"",
+    "categoria": "Herramientas Manuales",
+    "precio": 9500,
+    "descripcion": "Pinza de acero forjado con mango ergonómico antideslizante de alta adherencia.",
+    "imagen": "/imagenes/pinza 8.webp"
+  },
+  {
+    "id": 9,
+    "nombre": "Nivel de Mano de Aluminio 60cm",
+    "categoria": "Medición",
+    "precio": 8700,
+    "descripcion": "Nivel tubular de aluminio con 3 burbujas de precisión (0°, 45° y 90°).",
+    "imagen": "/imagenes/nivel mano.webp"
+  },
+  {
+    "id": 10,
+    "nombre": "Soldadora Inverter 160A",
+    "categoria": "Herramientas Eléctricas",
+    "precio": 115000,
+    "descripcion": "Soldadora inverter compacta de alta eficiencia, apta para electrodos de hasta 3.2mm.",
+    "imagen": "/imagenes/soldadora 160A.webp"
+  }
+]
