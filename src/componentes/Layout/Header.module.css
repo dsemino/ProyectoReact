@@ -33,6 +33,7 @@
   /* Efecto de degradado moderno en el texto */
   background: linear-gradient(45deg, #ffffff 60%, #ffc107);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   font-family: 'Poppins', 'Segoe UI', sans-serif;
 }
