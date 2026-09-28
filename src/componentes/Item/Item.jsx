@@ -8,7 +8,7 @@ function Item({ info }) {
       <span className={styles.categoria}>{info.categoria}</span>
       <h3 className={styles.titulo}>{info.nombre}</h3>
       
-      {/* Imprimimos el signo de forma directa y limpia */}
+      {}
       <p className={styles.precio}>${info.precio.toLocaleString('es-AR')}</p>
       
       <Link to={`/producto/${info.id}`} className={styles.boton}>

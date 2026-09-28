@@ -24,7 +24,7 @@ function ItemListContainer() {
   }
 
   return (
-    <div className={styles.grid}> {/* Aplicamos la clase del módulo */}
+    <div className={styles.grid}> {}
       {productos.map((producto) => (
         <Item key={producto.id} info={producto} />
       ))}

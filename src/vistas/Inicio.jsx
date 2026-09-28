@@ -1,14 +1,3 @@
-// function Inicio() {
-//   return (
-//     <div style={{ textAlign: 'center', padding: '50px' }}>
-//       <h1>🛠️ Bienvenido a la Tienda de Herramientas de MiFerreteria.com</h1>
-//       <p style={{ color: '#666', fontSize: '18px', marginTop: '15px' }}>
-//         Encuentra las mejores herramientas eléctricas y manuales para tus proyectos profesionales y del hogar.
-//       </p>
-//     </div>
-//   );
-// }
-// export default Inicio;
 
 
 import { Link } from 'react-router-dom';

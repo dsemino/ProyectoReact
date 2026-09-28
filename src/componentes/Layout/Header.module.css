@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 15px 40px;
-  background-color: #1a1d20; /* Un gris oscuro más profundo y elegante */
+  background-color: #1a1d20; 
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Sombra suave inferior */
   border-bottom: 2px solid #ffc107; /* Línea de acento amarilla/dorada de ferretería */
 }
@@ -28,9 +28,9 @@
 
 .marcaTexto {
   font-size: 26px;
-  font-weight: 800; /* Texto bien robusto e industrial */
+  font-weight: 800; 
   letter-spacing: -0.5px;
-  /* Efecto de degradado moderno en el texto */
+  /* Efecto de degradado en el texto */
   background: linear-gradient(45deg, #ffffff 60%, #ffc107);
   -webkit-background-clip: text;
   background-clip: text;
