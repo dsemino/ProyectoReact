@@ -1,0 +1,129 @@
+.contenedor {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.vacio {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.botonVolver {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.lista {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.itemCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  gap: 15px;
+}
+
+.imagen {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  border-radius: 6px;
+  background-color: #f8f9fa;
+}
+
+.info {
+  flex: 1;
+}
+
+.info h4 {
+  margin: 0 0 5px 0;
+  color: #212529;
+}
+
+.info p {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.subtotal {
+  font-weight: bold;
+  font-size: 16px;
+  color: #2e7d32;
+}
+
+.botonEliminar {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.botonEliminar:hover {
+  background-color: #c82333;
+}
+
+.resumen {
+  margin-top: 30px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.totalTexto {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.acciones {
+  display: flex;
+  gap: 10px;
+}
+
+.botonVaciar {
+  background-color: #6c757d;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.botonComprar {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}

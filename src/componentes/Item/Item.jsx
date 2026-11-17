@@ -9,7 +9,9 @@ function Item({ info }) {
       <h3 className={styles.titulo}>{info.nombre}</h3>
       
       {}
-      <p className={styles.precio}>${info.precio.toLocaleString('es-AR')}</p>
+      
+      <p className={styles.precio}>$ {Number(info.precio).toLocaleString('es-AR')}</p>
+
       
       <Link to={`/producto/${info.id}`} className={styles.boton}>
         Ver Detalles

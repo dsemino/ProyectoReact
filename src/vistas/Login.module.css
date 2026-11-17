@@ -1,0 +1,80 @@
+.contenedor {
+  max-width: 400px;
+  margin: 60px auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.titulo {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #212529;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.campo label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #495057;
+}
+
+.campo input {
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.error {
+  color: #dc3545;
+  background-color: #f8d7da;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.boton {
+  padding: 12px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.boton:hover {
+  background-color: #0056b3;
+}
+
+.cambiarModo {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #6c757d;
+}
+
+.enlaceModo {
+  color: #007bff;
+  font-weight: bold;
+  cursor: pointer;
+  background: none;
+  border: none;
+  text-decoration: underline;
+}
