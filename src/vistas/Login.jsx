@@ -5,6 +5,9 @@ import styles from './Login.module.css';
 
 function Login() {
   const [esRegistro, setEsRegistro] = useState(false);
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [role, setRole] = useState('customer');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -21,13 +24,19 @@ function Login() {
       return;
     }
 
+    if (esRegistro && (!firstName.trim() || !lastName.trim())) {
+      setError('Por favor ingresa tu nombre y apellido.');
+      return;
+    }
+
     try {
       if (esRegistro) {
-        await registrar(email, password);
+        await registrar(email, password, firstName, lastName, role);
+        navigate(role === 'admin' ? '/admin' : '/productos');
       } else {
         await login(email, password);
+        navigate('/productos');
       }
-      navigate('/admin'); // Al loguearse, lo llevamos directo al panel de administración
     } catch (err) {
       console.error(err);
       if (err.code === 'auth/email-already-in-use') {
@@ -49,13 +58,51 @@ function Login() {
       {error && <p className={styles.error}>{error}</p>}
 
       <form onSubmit={handleSubmit} className={styles.formulario}>
+        {esRegistro && (
+          <>
+            <div className={styles.campo}>
+              <label>Nombre:</label>
+              <input
+                type="text"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+                placeholder="Ej. Darío"
+                required
+              />
+            </div>
+
+            <div className={styles.campo}>
+              <label>Apellido:</label>
+              <input
+                type="text"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+                placeholder="Ej. Semino"
+                required
+              />
+            </div>
+
+            <div className={styles.campo}>
+              <label>Tipo de Cuenta (Rol):</label>
+              <select
+                value={role}
+                onChange={(e) => setRole(e.target.value)}
+                style={{ padding: '10px', border: '1px solid #ced4da', borderRadius: '5px', fontSize: '15px' }}
+              >
+                <option value="customer">Cliente (Solo compras)</option>
+                <option value="admin">Administrador (Gestión de catálogo)</option>
+              </select>
+            </div>
+          </>
+        )}
+
         <div className={styles.campo}>
           <label>Correo Electrónico:</label>
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="admin@ferreteria.com"
+            placeholder="usuario@ferreteria.com"
             required
           />
         </div>

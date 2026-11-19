@@ -6,7 +6,7 @@ import styles from './NavBar.module.css';
 
 function NavBar() {
   const { totalItems } = useContext(CarritoContext);
-  const { usuario, logout } = useContext(AuthContext);
+  const { usuario, perfil, logout } = useContext(AuthContext);
 
   return (
     <nav className={styles.nav}>
@@ -21,7 +21,12 @@ function NavBar() {
 
         {usuario ? (
           <>
-            <li><Link to="/admin" className={styles.enlace}>⚙️ Panel Admin</Link></li>
+            {perfil?.role === 'admin' && (
+              <li><Link to="/admin" className={styles.enlace}>⚙️ Panel Admin</Link></li>
+            )}
+            <li style={{ color: '#ffc107', fontSize: '14px', fontWeight: 'bold' }}>
+              👋 Hola, {perfil?.firstName || 'Usuario'}
+            </li>
             <li>
               <button
                 onClick={logout}
@@ -48,3 +53,4 @@ function NavBar() {
 }
 
 export default NavBar;
+

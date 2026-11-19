@@ -3,14 +3,18 @@ import { Navigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext.js';
 
 function RutaProtegida({ children }) {
-  const { usuario } = useContext(AuthContext);
+  const { usuario, perfil } = useContext(AuthContext);
 
-  // Si no hay usuario logueado, lo redirige automáticamente al Login
   if (!usuario) {
     return <Navigate to="/login" replace />;
+  }
+
+  if (perfil && perfil.role !== 'admin') {
+    return <Navigate to="/" replace />;
   }
 
   return children;
 }
 
 export default RutaProtegida;
+

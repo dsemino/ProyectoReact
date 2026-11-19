@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../firebase/config.js';
 import Item from './Item.jsx';
 import styles from './Item.module.css';
+
 
 
 function ItemListContainer() {
@@ -10,11 +12,16 @@ function ItemListContainer() {
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState('');
 
-  // Estados para búsqueda y paginación (Requerimiento 4)
-  const [busqueda, setBusqueda] = useState('');
-  const [paginaActual, setPaginaActual] = useState(1);
-  const productosPorPagina = 8; // Mostramos 6 por página para que se vea el paginador con tus 10 ítems
+  // Leemos el parámetro '?categoria=...' de la URL
+  const [searchParams, setSearchParams] = useSearchParams();
+  const categoriaUrl = searchParams.get('categoria') || '';
 
+  const [busqueda, setBusqueda] = useState(categoriaUrl);
+  const [paginaActual, setPaginaActual] = useState(1);
+  const productosPorPagina = 8;
+
+  
+  //useEffect: carga los productos desde Firebase al iniciar
   useEffect(() => {
     const obtenerProductos = async () => {
       setCargando(true);
@@ -28,7 +35,7 @@ function ItemListContainer() {
         }));
         setProductos(lista);
       } catch (err) {
-        console.error('Error al cargar las herramientas:', err);
+        console.error('Error al cargar los productos:', err);
         setError('No se pudo conectar con el servidor. Intenta recargar la página.');
       } finally {
         setCargando(false);
@@ -45,7 +52,7 @@ function ItemListContainer() {
       prod.categoria.toLowerCase().includes(busqueda.toLowerCase())
   );
 
-  // Cálculos de paginación
+   // Cálculos de paginación
   const totalPaginas = Math.ceil(productosFiltrados.length / productosPorPagina);
   const indiceUltimo = paginaActual * productosPorPagina;
   const indicePrimero = indiceUltimo - productosPorPagina;
@@ -53,10 +60,13 @@ function ItemListContainer() {
 
   // Reiniciar a la página 1 cada vez que el usuario escribe en el buscador
   const handleBuscar = (e) => {
-    setBusqueda(e.target.value);
+    const valor = e.target.value;
+    setBusqueda(valor);
     setPaginaActual(1);
+    if (valor === '') {
+      setSearchParams({}); // Limpia el '?categoria=...' de la barra de direcciones
+    }
   };
-
   if (cargando) {
     return (
       <p style={{ textAlign: 'center', fontSize: '18px', padding: '40px' }}>
