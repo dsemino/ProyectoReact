@@ -15,7 +15,7 @@ function Admin() {
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState('');
 
-  // Estados del formulario controlado
+  // Estados controlados para cada campo del formulario (creación y edición)
   const [idEditando, setIdEditando] = useState(null);
   const [nombre, setNombre] = useState('');
   const [categoria, setCategoria] = useState('');
@@ -25,7 +25,7 @@ function Admin() {
 
   const productosRef = collection(db, 'productos');
 
-
+  // Vuelve a consultar Firestore después de crear, editar o borrar un producto
   const recargarProductos = async () => {
     try {
       const snapshot = await getDocs(productosRef);
@@ -40,18 +40,14 @@ function Admin() {
     }
   };
 
-useEffect(() => {
+  // Carga inicial segura al entrar al panel
+  useEffect(() => {
     let activo = true;
-
     const cargarInicial = async () => {
       try {
         const snapshot = await getDocs(collection(db, 'productos'));
         if (activo) {
-          const lista = snapshot.docs.map((documento) => ({
-            id: documento.id,
-            ...documento.data()
-          }));
-          setProductos(lista);
+          setProductos(snapshot.docs.map((d) => ({ id: d.id, ...d.data() })));
           setCargando(false);
         }
       } catch (err) {
@@ -62,16 +58,11 @@ useEffect(() => {
         }
       }
     };
-
     cargarInicial();
-
-    return () => {
-      activo = false;
-    };
+    return () => { activo = false; };
   }, []);
-    
 
-  // Limpiar formulario
+  // Resetea todos los inputs del formulario a su estado inicial
   const limpiarFormulario = () => {
     setIdEditando(null);
     setNombre('');
@@ -82,12 +73,11 @@ useEffect(() => {
     setError('');
   };
 
-  // Guardar (Crear o Actualizar)
+  // Maneja el envío del formulario: valida datos y decide si crea (addDoc) o actualiza (updateDoc)
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
 
-    // Validaciones obligatorias del Requerimiento 2.1
     if (!nombre.trim() || !categoria.trim() || !descripcion.trim()) {
       setError('Todos los campos de texto son obligatorios.');
       return;
@@ -107,15 +97,13 @@ useEffect(() => {
 
     try {
       if (idEditando) {
-        // Actualizar existente
-        const docRef = doc(db, 'productos', idEditando);
-        await updateDoc(docRef, datosProducto);
+        // Actualiza el documento existente en Firestore
+        await updateDoc(doc(db, 'productos', idEditando), datosProducto);
       } else {
-        // Crear nuevo
+        // Crea un documento nuevo en Firestore
         await addDoc(productosRef, datosProducto);
       }
       limpiarFormulario();
-      //obtenerProductos();
       recargarProductos();
     } catch (err) {
       console.error(err);
@@ -123,7 +111,7 @@ useEffect(() => {
     }
   };
 
-  // Cargar datos en el formulario para editar
+  // Rellena el formulario con los datos de la fila seleccionada para editarla
   const handleEditar = (prod) => {
     setIdEditando(prod.id);
     setNombre(prod.nombre);
@@ -134,16 +122,15 @@ useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // Eliminar con confirmación UX (Requerimiento 2.1)
+  // Pide confirmación visual antes de borrar definitivamente un documento de Firestore
   const handleEliminar = async (id, nombreProd) => {
     const confirmar = window.confirm(
-      `¿Estás seguro de que deseas eliminar "${nombreProd}" del catálogo? Esta acción no se puede deshacer.`
+      `¿Estás seguro de que deseas eliminar "${nombreProd}" del catálogo?`
     );
     if (!confirmar) return;
 
     try {
       await deleteDoc(doc(db, 'productos', id));
-      //btenerProductos();
       recargarProductos();
     } catch (err) {
       console.error(err);
@@ -151,7 +138,7 @@ useEffect(() => {
     }
   };
 
-
+  // ... (Renderizado JSX del formulario y la tabla) ...
   return (
     <div className={styles.contenedor}>
       <div className={styles.headerAdmin}>
@@ -229,7 +216,7 @@ useEffect(() => {
         </form>
       </div>
 
-      {/* Listado y Gestión */}
+      {/* Tabla de Inventario */}
       {cargando ? (
         <p style={{ textAlign: 'center' }}>Cargando inventario desde Firebase...</p>
       ) : (
